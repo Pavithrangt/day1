@@ -1,0 +1,66 @@
+HTTP/1.1 has long been the backbone of internet communication, but the arrival of HTTP/2 
+introduced significant improvements, addressing several limitations of its predecessor.
+
+HTTP/1.1: The Traditional Protocol
+HTTP/1.1 has been the backbone of the internet for years, facilitating the exchange of data between a client (such as a web browser) and a server. However, its architecture had limitations that became more pronounced with the increasing complexity of web applications:
+
+Limitations of HTTP/1.1:
+Head-of-Line Blocking: In HTTP/1.1, requests are served sequentially, leading to potential delays due to a phenomenon known as head-of-line blocking. If a large file or resource is requested, subsequent requests are held up, impacting performance.
+
+Multiple Connections: To circumvent limitations, developers used workarounds like domain sharding or concatenation, splitting resources across multiple domains to bypass the limited number of simultaneous connections per domain.
+
+Compression and Multiplexing: While HTTP/1.1 supports gzip compression, it lacks efficient multiplexing, leading to overhead in multiple requests.
+
+Enter HTTP/2: Improving Performance and Efficiency
+In response to these limitations, HTTP/2 emerged as a major overhaul, aiming to optimize data transfer and enhance web performance:
+
+Key Advancements of HTTP/2:
+Multiplexing: HTTP/2 introduces multiplexing, allowing multiple requests and responses to be sent and received simultaneously on a single TCP connection. This eliminates head-of-line blocking, enhancing efficiency and reducing latency.
+
+Header Compression: With HPACK, a new header compression algorithm, HTTP/2 minimizes redundant header data, reducing overhead and improving performance, especially for requests that carry numerous headers.
+
+Server Push: This feature enables servers to proactively send resources to the client before they are requested. For instance, if the server knows the client will need certain assets, it can push those resources without waiting for explicit requests, reducing latency.
+
+Binary Protocol: HTTP/2 uses a binary protocol instead of plain text, making it more compact and efficient for parsing, resulting in faster processing by both servers and clients.
+
+Compatibility and Transition:
+Transitioning from HTTP/1.1 to HTTP/2 doesn't necessitate significant changes for developers. Most modern browsers and servers support HTTP/2, and the protocol automatically negotiates the best version between the client and server.
+
+Conclusion:
+HTTP/2 represents a major leap in web protocol technology, addressing many of the inefficiencies and bottlenecks present in HTTP/1.1. Its enhancements in multiplexing, header compression, and server push significantly improve the speed, efficiency, and overall performance of web applications, paving the way for a faster and more optimized web browsing experience.
+
+Understanding these differences empowers developers and system architects to leverage the advancements of HTTP/2 and optimize their applications for better performance in the evolving landscape of the internet.
+
+2..........Write a blog about objects and its internal representation in Javascript
+
+In JavaScript, objects are a fundamental part of the language, serving as containers for related data and functionality. Understanding their internal representation is key to leveraging their power effectively.
+
+Objects in JavaScript:
+At its core, a JavaScript object is a collection of key-value pairs, where each key (also called a property) is associated with a value. These values can be primitive data types, other objects, or functions, making JavaScript objects incredibly versatile.
+
+Internal Representation:
+Internally, objects in JavaScript are implemented using a combination of properties and a prototype linkage. Each object has a hidden property known as its prototype, which can be thought of as a template from which the object inherits methods and properties.
+
+Properties and Methods:
+Properties within objects can be accessed using dot notation or bracket notation. For instance:
+let car = {
+    brand: 'Toyota',
+    model: 'Corolla',
+    year: 2022,
+    start: function() {
+        console.log('Engine started');
+    }
+};
+
+console.log(car.brand);
+car.start(); 
+
+
+let vehicle = {
+    drive: function() {
+        console.log('The vehicle is moving');
+    }
+};
+
+let car = Object.create(vehicle);
+car.drive(); // Output: The vehicle is moving
